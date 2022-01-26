@@ -31,7 +31,6 @@
             <div class="section-content">
                 <ul class="cards collection-items">
                     <!-- Start -->
-
                     @foreach($subscriptions as $subscription)
                         <li class="card collection-item">
                             <div class="box-image">

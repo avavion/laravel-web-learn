@@ -35,7 +35,7 @@
 
             <ul class="menu actions">
                 <li class="menu__item">
-                    <a href="#" class="menu__link medium">Записаться</a>
+                    <a href="{{ route('login') }}" class="menu__link medium">Записаться</a>
                 </li>
             </ul>
 

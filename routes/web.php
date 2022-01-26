@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use \App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, "index"]);
-Route::get('/create', [IndexController::class, 'createUser']);
+Route::get('/', [IndexController::class, "index"])->name('home');
+//Route::get('/create', [IndexController::class, 'createUser']);
+
+Route::get('/login', [AuthController::class, "getLogin"])->name('login');
+Route::post('/login', [AuthController::class, 'postLogin']);
