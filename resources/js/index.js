@@ -1,7 +1,13 @@
 // by avavion.
 // 19/01/2022
-import Swiper from 'swiper';
+
+// import Swiper bundle with all modules installed
+import Swiper, {Pagination} from 'swiper';
+
+// import styles bundle
 import 'swiper/css';
+
+Swiper.use([Pagination]);
 
 const DEBUG = false;
 
@@ -21,6 +27,7 @@ const video = () => {
         video.setAttribute('loop', 'loop');
         video.setAttribute('autoplay', 'autoplay');
     }
+    ;
 }
 
 const header = {
@@ -112,12 +119,37 @@ const reviews = {
     }
 };
 
+const gallery = () => {
+    const gallery = document.querySelector('#gallery');
+
+    if (!gallery) return false;
+
+    const settings = {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        centeredSlides: true,
+        loop: true,
+        speed: 500,
+        autoplay: {
+            delay: 5000
+        },
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+        },
+    };
+
+    const slider = new Swiper(gallery, settings);
+}
+
 // Init function
 const init = () => {
     dd('init();');
     header.init();
     reviews.init();
     video();
+    gallery();
 }
 
 document.addEventListener('DOMContentLoaded', init);

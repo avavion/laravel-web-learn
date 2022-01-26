@@ -29,8 +29,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 // by avavion.
 // 19/01/2022
+// import Swiper bundle with all modules installed
+ // import styles bundle
 
 
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination]);
 var DEBUG = false; // Debug hepler function
 
 var dd = function dd(data) {
@@ -69,6 +72,8 @@ var video = function video() {
   } finally {
     _iterator.f();
   }
+
+  ;
 };
 
 var header = {
@@ -168,13 +173,36 @@ var reviews = {
       _iterator2.f();
     }
   }
+};
+
+var gallery = function gallery() {
+  var gallery = document.querySelector('#gallery');
+  if (!gallery) return false;
+  var settings = {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    centeredSlides: true,
+    loop: true,
+    speed: 500,
+    autoplay: {
+      delay: 5000
+    },
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets'
+    }
+  };
+  var slider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](gallery, settings);
 }; // Init function
+
 
 var init = function init() {
   dd('init();');
   header.init();
   reviews.init();
   video();
+  gallery();
 };
 
 document.addEventListener('DOMContentLoaded', init);
