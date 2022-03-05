@@ -26,8 +26,6 @@ class IndexController extends Controller
 
     public function createUser(Request $request)
     {
-
-
         $user = User::query()->create([
             'first_name' => 'Алан',
             'last_name' => 'Богов',
